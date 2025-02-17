@@ -228,9 +228,33 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>ResultScreen()));
-            }, child: Text("Calculate")),
+            SizedBox(height: 30,),
+            ElevatedButton(
+                style:ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.buttonColor,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  // fixedSize: Size(double.infinity, 30)
+                  // maximumSize: Size(double.infinity, 40),
+                  minimumSize:  Size(double.infinity, 60)
+                )
+                ,onPressed: (){
+                  if(isMale!=null){
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>ResultScreen(
+                      height:sliderValue ,
+                      weight: weight,
+                      age: age,
+                      isMale: isMale??false,
+
+                    )));
+                  }else{
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    backgroundColor: AppColors.buttonColor
+                    ,content: Text("please select your gender")));
+                  }
+            }, child: Text("Calculate",style:  TextStyle(
+                fontSize: 20,
+                color: Colors.white
+            ),)),
           ],
         ),
       ),

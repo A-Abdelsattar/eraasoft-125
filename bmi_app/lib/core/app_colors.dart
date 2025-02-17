@@ -6,4 +6,5 @@ class AppColors{
    static Color mainLightColor=Color(0XFF333244);
    static Color secondaryColor=Color(0xff24263B);
    static Color textGrayColor=Color(0xff8B8C9E);
+   static Color buttonColor=Color(0xffE83D67);
 }
