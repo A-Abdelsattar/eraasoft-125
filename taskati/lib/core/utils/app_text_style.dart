@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class AppTextStyle {
 
-  static TextStyle fontStyle20Blod=const TextStyle(
+  static TextStyle fontStyle20Bold=const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold
   );
 
-  static TextStyle fonstStyle13Grey=const TextStyle(
+  static TextStyle fontStyle13Grey=const TextStyle(
     fontSize: 13,
     color: Colors.grey
   );

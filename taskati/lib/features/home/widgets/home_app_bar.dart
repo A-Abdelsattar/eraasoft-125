@@ -16,10 +16,10 @@ class HomeAppBar extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            Text(AppStrings.welcomeInHome(" Ahmed"),style: AppTextStyle.fontStyle20Blod.copyWith(
+            Text(AppStrings.welcomeInHome(" Ahmed"),style: AppTextStyle.fontStyle20Bold.copyWith(
               color:AppColors.primaryColor
             ),),
-            Text("Have a nice day",style: AppTextStyle.fontStyle20Blod.copyWith(
+            Text("Have a nice day",style: AppTextStyle.fontStyle20Bold.copyWith(
               fontWeight: FontWeight.normal
             ),),
 

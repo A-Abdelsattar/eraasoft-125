@@ -30,9 +30,9 @@ class _SplashScreenState extends State<SplashScreen> {
           ,children: [
           Image.asset(AppImages.logoSplashImage
           ),
-           Text(AppStrings.appName,style:AppTextStyle.fontStyle20Blod,),
+           Text(AppStrings.appName,style:AppTextStyle.fontStyle20Bold,),
           const SizedBox(height: 10,),
-          Text(AppStrings.splashDescription,style: AppTextStyle.fonstStyle13Grey)
+          Text(AppStrings.splashDescription,style: AppTextStyle.fontStyle13Grey)
         ],),
       ),
     );

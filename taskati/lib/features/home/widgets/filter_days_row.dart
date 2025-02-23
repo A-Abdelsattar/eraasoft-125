@@ -16,6 +16,7 @@ class FilterDaysRow extends StatelessWidget {
         DayContainer(),
         DayContainer(),
         DayContainer(),
+
       ],
     );
   }
