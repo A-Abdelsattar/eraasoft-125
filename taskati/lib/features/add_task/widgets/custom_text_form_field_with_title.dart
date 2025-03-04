@@ -10,7 +10,9 @@ class CustomTextFormFieldWithTitle extends StatelessWidget {
   final Widget? suffixIcon;
   final bool readOnly;
   final void Function()? onTap;
-  const CustomTextFormFieldWithTitle({super.key, required this.title, required this.hintText, this.suffixIcon,  this.readOnly=false, this.onTap});
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+  const CustomTextFormFieldWithTitle({super.key, required this.title, required this.hintText, this.suffixIcon,  this.readOnly=false, this.onTap, this.controller, this.validator});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +22,10 @@ class CustomTextFormFieldWithTitle extends StatelessWidget {
         Text(title,style: AppTextStyle.fontStyle20Bold,),
         SizedBox(height: 10,),
         TextFormField(
+          controller:controller ,
           onTap:onTap ,
           readOnly: readOnly,
+          validator:validator,
           decoration: InputDecoration(
               hintText: hintText,
               suffixIcon:suffixIcon ,

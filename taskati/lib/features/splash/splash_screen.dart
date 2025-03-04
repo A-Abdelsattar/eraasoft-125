@@ -39,9 +39,14 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
 
-   _navigateToNextScreen(){
-    Future.delayed(Duration(milliseconds:3000 ),(){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+  void _navigateToNextScreen() {
+    Future.delayed(const Duration(milliseconds: 3000), () {
+      // if (!mounted) return; // Check if the widget is still in the tree
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) =>  HomeScreen()),
+      );
     });
   }
+
 }

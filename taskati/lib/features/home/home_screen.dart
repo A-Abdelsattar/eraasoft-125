@@ -8,7 +8,7 @@ import 'package:taskati/features/home/widgets/task_item.dart';
 import 'package:taskati/features/home/widgets/taskes_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+   HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +30,15 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-           false?EmptyTaskList() :TasksListView()
+           tasks?.isEmpty??false?EmptyTaskList() :TasksListView()
             ],
           ),
         ),
       ),
     );
   }
+  List? tasks=[
+
+  ];
 }
+
