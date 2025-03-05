@@ -25,7 +25,11 @@ class CustomTextFormFieldWithTitle extends StatelessWidget {
           controller:controller ,
           onTap:onTap ,
           readOnly: readOnly,
-          validator:validator,
+          validator:(value){
+            if(value?.isEmpty??true){
+              return "this field is required";
+            }
+          },
           decoration: InputDecoration(
               hintText: hintText,
               suffixIcon:suffixIcon ,

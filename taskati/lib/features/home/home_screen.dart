@@ -22,7 +22,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              DateAndAddBtn(),
+              DateAndAddBtn(
+
+              ),
               SizedBox(
                 height: 20,
               ),
@@ -30,15 +32,14 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-           tasks?.isEmpty??false?EmptyTaskList() :TasksListView()
+
+          TasksListView()
             ],
           ),
         ),
       ),
     );
   }
-  List? tasks=[
 
-  ];
 }
 

@@ -1,12 +1,13 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:taskati/core/models/task_model.dart';
 import 'package:taskati/core/utils/app_colors.dart';
 import 'package:taskati/core/utils/app_text_style.dart';
 
 class TaskItem extends StatelessWidget {
-  final Color? color;
-  const TaskItem({super.key, this.color});
+  final TaskModel task;
+  const TaskItem({super.key,  required this.task});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class TaskItem extends StatelessWidget {
       padding: EdgeInsets.all(12),
       margin: EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-      color:color,
+      color:Color(task.backgroundColorValue),
       borderRadius: BorderRadius.circular(12)
       ),
       child: Row(
@@ -24,7 +25,7 @@ class TaskItem extends StatelessWidget {
             
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Flutter task-1 ",style: AppTextStyle.fontStyle20Bold.copyWith(
+                Text(task.title,style: AppTextStyle.fontStyle20Bold.copyWith(
                   color: Colors.white
                 ),maxLines: 1,overflow: TextOverflow.ellipsis,),
                 SizedBox(height: 10,),
@@ -33,13 +34,18 @@ class TaskItem extends StatelessWidget {
                   children: [
                     Icon(Icons.access_time,color: Colors.white,),
                     SizedBox(width: 10,),
-                    Text("20:00 pm",style: AppTextStyle.fontStyle13Grey.copyWith(
+                    Text("${task.startTime} ${task.endTime}",style: AppTextStyle.fontStyle13Grey.copyWith(
                       color: Colors.white
                     ),)
                   ],
                 ),
                 SizedBox(height: 10,),
-                Text("i will do this task",style: AppTextStyle.fontStyle17White,),
+
+                Text(task.date,style: AppTextStyle.fontStyle13Grey.copyWith(
+                    color: Colors.white
+                ),),
+                SizedBox(height: 10,),
+                Text(task.description,style: AppTextStyle.fontStyle17White,),
             
             
               ],
@@ -52,7 +58,7 @@ class TaskItem extends StatelessWidget {
           ),
           SizedBox(width: 10,),
           RotatedBox(quarterTurns: 3,
-         child: Text("To Do",style: AppTextStyle.fontStyle17White,))
+         child: Text(task.isComplete?"Complete":"To Do",style: AppTextStyle.fontStyle17White,))
 
         ],
       ),
