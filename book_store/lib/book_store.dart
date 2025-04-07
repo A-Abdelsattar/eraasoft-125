@@ -19,7 +19,8 @@ class BookStore extends StatelessWidget {
        child: MaterialApp(
          debugShowCheckedModeBanner: false,
          theme: ThemeData(
-           fontFamily: AppConstants.appFontFamily
+           fontFamily: AppConstants.appFontFamily,
+           scaffoldBackgroundColor: Color(0XFFf5f5f5)
          ),
          home: OnboardingScreen(),
        ),
