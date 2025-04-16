@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:taskati/core/models/user_manager.dart';
+import 'package:taskati/core/models/user_model.dart';
 import 'package:taskati/core/utils/app_colors.dart';
 import 'package:taskati/core/utils/app_text_style.dart';
 import 'package:taskati/core/widgets/custom_button.dart';
@@ -16,7 +18,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final ImagePicker picker = ImagePicker();
-
+  var nameController=TextEditingController();
    XFile? image;
    pickFromCamera()async{
      image= await picker.pickImage(source: ImageSource.camera);
@@ -30,6 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    UserManager userManager=UserManager.instance;
     return Scaffold(
       appBar: AppBar(iconTheme: IconThemeData(
         color: AppColors.primaryColor
@@ -111,7 +114,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Row(children: [
               Expanded(child: Text("data",style: AppTextStyle.fontStyle20Bold,)),
               IconButton(onPressed: (){}, icon: Icon(Icons.edit))
-            ],)
+            ],),
+            CustomButton(title: "Save", onTap: (){
+              userManager.saveUserData(UserModel(nameController.text.isNotEmpty?nameController.text:userManager.userData?.name??"", image?.path??""));
+            })
           ],
         ),
       ),

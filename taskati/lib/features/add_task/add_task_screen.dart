@@ -148,7 +148,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                           date: dateController.text,
                           startTime: startTimeController.text
                           , endTime: endTimeController.text,
-                          backgroundColorValue: availableColors[selectedIndexColor].value));
+                          backgroundColorValue: availableColors[selectedIndexColor].toARGB32()));
                       Navigator.pop(context);
                     }else{
                       showDialog(context: context, builder: (context)=>AlertDialog(

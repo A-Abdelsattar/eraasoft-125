@@ -16,25 +16,27 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
-          child: Column(
-            children: [
-              HomeAppBar(),
-              SizedBox(
-                height: 20,
-              ),
-              DateAndAddBtn(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                HomeAppBar(),
+                SizedBox(
+                  height: 20,
+                ),
+                DateAndAddBtn(
 
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              FilterDaysRow(),
-              SizedBox(
-                height: 20,
-              ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                FilterDaysRow(),
+                SizedBox(
+                  height: 20,
+                ),
 
-          TasksListView()
-            ],
+            TasksListView()
+              ],
+            ),
           ),
         ),
       ),

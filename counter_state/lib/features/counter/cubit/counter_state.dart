@@ -4,3 +4,6 @@ part of 'counter_cubit.dart';
 sealed class CounterState {}
 
 final class CounterInitial extends CounterState {}
+
+class IncrementState extends CounterState{}
+class DecrementState extends CounterState{}

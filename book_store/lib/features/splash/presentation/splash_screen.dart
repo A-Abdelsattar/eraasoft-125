@@ -1,8 +1,10 @@
 import 'package:book_store/book_store.dart';
 import 'package:book_store/core/helpers/app_images.dart';
 import 'package:book_store/core/helpers/spacing.dart';
+import 'package:book_store/features/create_account/cubit/create_account_cubit.dart';
 import 'package:book_store/features/create_account/presentation/create_account_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/widgets/custom_app_button.dart';
@@ -41,7 +43,10 @@ class SplashScreen extends StatelessWidget {
                 title: "Create Account",
                 backgroundColor: Colors.white,
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateAccountScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BlocProvider(
+  create: (context) => CreateAccountCubit(),
+  child: CreateAccountScreen(),
+)));
                 },
               ),
             ],

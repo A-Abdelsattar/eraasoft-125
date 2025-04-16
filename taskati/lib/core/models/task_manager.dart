@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:taskati/core/models/task_model.dart';
 
+//[TaskManger, TaskManger]
 class TaskManager extends ChangeNotifier{
   TaskManager._(){
    _loadTasksList();

@@ -13,6 +13,7 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   PageController controller=PageController(initialPage: 0);
+  int pageNum=0;
 
   @override
   Widget build(BuildContext context) {
