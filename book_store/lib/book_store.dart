@@ -3,31 +3,20 @@
 
 
 import 'package:book_store/core/helpers/app_contstants.dart';
+import 'package:book_store/core/services/local/shared_prefs_helper/prefs_keys.dart';
+import 'package:book_store/core/services/local/shared_prefs_helper/shared_prefs_helper.dart';
 import 'package:book_store/features/onboarding/presentation/onboarding_screen.dart';
+import 'package:book_store/features/splash/presentation/splash_screen.dart';
 import 'package:book_store/features/test_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class BookStore extends StatefulWidget {
+class BookStore extends StatelessWidget {
    const BookStore({super.key});
 
   @override
-  State<BookStore> createState() => _BookStoreState();
-}
 
-
-class _BookStoreState extends State<BookStore> {
-  late final SharedPreferences? prefs;
-  @override
-  void initState() {
-    fetchToken();
-    super.initState();
-  }
-  fetchToken()async{
-    prefs = await SharedPreferences.getInstance();
-
-  }
    @override
    Widget build(BuildContext context) {
      return ScreenUtilInit(
@@ -40,14 +29,25 @@ class _BookStoreState extends State<BookStore> {
            fontFamily: AppConstants.appFontFamily,
            scaffoldBackgroundColor: Color(0XFFf5f5f5)
          ),
-         home:getToken()!=null?TestScreen():OnboardingScreen(),
+         home:startScreen(),
        ),
      );
    }
 
-
    String? getToken(){
 
-     return prefs?.getString("token");
+     return SharedPrefsHelper.getData(PrefsKeys.tokenKey);
    }
+
+  Widget startScreen(){
+    if(getToken()!=null){
+      return TestScreen();
+    }else if(SharedPrefsHelper.getData(PrefsKeys.onBoardingIsOpened)==true){
+      return SplashScreen();
+    }else{
+      return OnboardingScreen();
+    }
+   }
+
+
 }

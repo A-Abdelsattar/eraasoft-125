@@ -1,8 +1,11 @@
+import 'package:book_store/core/services/local/shared_prefs_helper/shared_prefs_helper.dart';
 import 'package:book_store/features/create_account/data/repo/create_account_repo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../core/services/local/shared_prefs_helper/prefs_keys.dart';
 
 part 'create_account_state.dart';
 
@@ -30,8 +33,8 @@ class CreateAccountCubit extends Cubit<CreateAccountState> {
     }
   }
 
- void _saveUserToken(String token)async{
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString("token", token);
+ void _saveUserToken(String token){
+
+    SharedPrefsHelper.saveData(key:PrefsKeys.tokenKey,value:  token);
   }
 }
