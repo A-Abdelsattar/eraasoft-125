@@ -11,4 +11,9 @@ class AppTextStyle{
   );static TextStyle font16Regular=TextStyle(
     fontSize: 16.sp,
   );
+  static TextStyle font12SemiBold=TextStyle(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w600
+  );
+
 }

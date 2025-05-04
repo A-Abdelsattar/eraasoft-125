@@ -7,11 +7,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class CustomTextFormFieldWithTitle extends StatelessWidget {
-  const CustomTextFormFieldWithTitle({super.key, required this.title, required this.hintText, this.controller});
+  const CustomTextFormFieldWithTitle({super.key, required this.title, required this.hintText, this.controller, this.validator});
 
   final String title;
   final String hintText;
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +24,7 @@ class CustomTextFormFieldWithTitle extends StatelessWidget {
         TextFormField(
           controller: controller,
           cursorColor: AppColors.mainColor,
+          validator: validator,
           decoration: InputDecoration(
             contentPadding:EdgeInsets.symmetric(horizontal: 16.w) ,
             fillColor: Colors.white,
