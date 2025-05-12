@@ -1,6 +1,7 @@
 import 'package:book_store/core/helpers/app_contstants.dart';
 import 'package:book_store/core/services/local/shared_prefs_helper/prefs_keys.dart';
 import 'package:book_store/core/services/local/shared_prefs_helper/shared_prefs_helper.dart';
+import 'package:book_store/features/books/presentation/search_screen.dart';
 import 'package:book_store/features/bottom_nav_bar/presentation/bottom_nav_bar_screen.dart';
 import 'package:book_store/features/create_account/cubit/create_account_cubit.dart';
 import 'package:book_store/features/create_account/presentation/create_account_screen.dart';
@@ -45,7 +46,8 @@ class BookStore extends StatelessWidget {
                 create: (context) => CreateAccountCubit(),
                 child: CreateAccountScreen(),
               ),
-          "/home": (context) => HomeScreen()
+          "/home": (context) => HomeScreen(),
+          "/booksSearch":(context)=>SearchScreen()
         },
         initialRoute: startScreen(),
 

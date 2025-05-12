@@ -1,3 +1,5 @@
+import 'package:book_store/core/services/local/shared_prefs_helper/prefs_keys.dart';
+import 'package:book_store/core/services/local/shared_prefs_helper/shared_prefs_helper.dart';
 import 'package:book_store/core/services/network/dio_helper/end_points.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -51,6 +53,10 @@ class DioHelper{
     Map<String,dynamic>? query,
 
   })async{
+    _dio?.options.headers={
+      if(SharedPrefsHelper.getData(PrefsKeys.tokenKey)!=null)
+      "authorization":"Bearer ${SharedPrefsHelper.getData(PrefsKeys.tokenKey)}"
+    };
     return await _dio?.get(endPoint,data: data,queryParameters: query);
   }
 }

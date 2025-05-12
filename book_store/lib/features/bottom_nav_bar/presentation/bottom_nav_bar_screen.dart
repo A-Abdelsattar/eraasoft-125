@@ -2,7 +2,9 @@ import 'package:book_store/core/helpers/spacing.dart';
 import 'package:book_store/core/theming/app_colors.dart';
 import 'package:book_store/features/books/cubit/book_cubit.dart';
 import 'package:book_store/features/books/presentation/books_screen.dart';
+import 'package:book_store/features/home/cubit/home_cubit.dart';
 import 'package:book_store/features/home/presentation/home_screen.dart';
+import 'package:book_store/features/profile/presentation/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,14 +19,17 @@ class BottomNavBarScreen extends StatefulWidget {
 class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   int _currentIndex = 0;
   List<Widget> _screens = [
-    HomeScreen(),
+    BlocProvider(create: (context)=>HomeCubit()..getNewArrivalsList()..getBestSellerList(),
+      child: HomeScreen(),
+
+    ),
     BlocProvider(
       create: (context) => BookCubit()..getBooks(),
       child: BooksScreen(),
     ),
     HomeScreen(),
     HomeScreen(),
-    HomeScreen(),
+    ProfileScreen()
   ];
 
   @override

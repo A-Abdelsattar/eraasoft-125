@@ -96,6 +96,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                         }
                       },
                       title: "Password",
+                      isPassword: true,
                       hintText: "**********",
                     ),
                     CustomTextFormFieldWithTitle(
@@ -107,6 +108,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                           return "confirmation password must be same as password";
                         }
                       },
+                      isPassword: true,
                       title: "Confirm password",
                       hintText: "**********",
                     ),

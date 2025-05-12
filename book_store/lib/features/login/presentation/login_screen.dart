@@ -70,6 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 CustomTextFormFieldWithTitle(
                   controller: passController,
+                  isPassword: true,
                   validator: (value) {
                     if (value?.trim() == null || value!.trim().isEmpty) {
                       return "password is required";

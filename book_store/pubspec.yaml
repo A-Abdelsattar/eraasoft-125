@@ -42,6 +42,12 @@ dependencies:
   flutter_bloc: ^9.1.0
   shared_preferences: ^2.5.3
   pretty_dio_logger: ^1.4.0
+  dartz: ^0.10.1
+  cached_network_image: ^3.4.1
+  rxdart: ^0.28.0
+  fluttertoast: ^8.2.11
+  awesome_dialog: ^3.2.0
+
 
 dev_dependencies:
   flutter_test:

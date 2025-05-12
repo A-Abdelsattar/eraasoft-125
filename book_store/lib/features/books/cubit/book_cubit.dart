@@ -47,6 +47,25 @@ class BookCubit extends Cubit<BookState> {
   }
 
 
+  ProductsResponseModel? searchResponse;
+
+
+  booksSearch(String name)async{
+    emit(SearchLoading());
+
+    final response=await BookRepo.booksSearch(name);
+    if(response is DioException){
+      emit(SearchError(response.response?.data["message"]));
+    }else if(response is Response){
+      searchResponse=ProductsResponseModel.fromJson(response.data);
+
+      emit(SearchSuccess(searchResponse?.data?.books??[]));
+    }else{
+      emit(SearchError("nou found, please try again!"));
+    }
+  }
+
+
   double startValue=10;
   double endValue=200;
   changeValues(RangeValues value){
@@ -54,4 +73,14 @@ class BookCubit extends Cubit<BookState> {
     endValue=value.end;
     emit(ChangeSliderValue());
   }
+
+addToCart({required int productId})async{
+    final response=await BookRepo.addToCart(productId: productId);
+    if(response is DioException){}
+    else if(response is Response){
+      emit(AddToCartSuccess(response.data["message"]??" "));
+    }
+}
+
+
 }
